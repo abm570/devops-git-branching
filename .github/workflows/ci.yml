@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check HTML file exists
+        run: test -f login.html && echo "login.html found"
+
+      - name: Check JS file exists
+        run: test -f login.js && echo "login.js found"
+
+      - name: Check CSS file exists
+        run: test -f login.css && echo "login.css found"
